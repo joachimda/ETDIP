@@ -1,8 +1,10 @@
-%ETDIP1 - Digital Image Processing
-%LAB 1
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%ETDIP1 - Digital Image Processing                                     %%  
+%%LAB 1                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Close all open windows
 clear, close all;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Ex 1.
 fileName = 'pcameraman.tiff';
@@ -24,10 +26,11 @@ aboveMeanImg = zeros(size(img));
 %Plot the image
 figure
 subplot(2,2,1);imshow(img);title('Original sample');
-subplot(2,2,2);imshow(img(100:150,100:150,:));title('Part of image (100,150);(100,150)');
+subplot(2,2,2);imshow(img(100:150,100:150,:));
+title('Part of image (100,150);(100,150)');
 subplot(2,2,3);hist(double(img(:)));
 
-%Triple the size of the image using Nearest Neighour"
+%%%%%%%%%% Triple the size of the image using Nearest Neighour %%%%%%%%%%%
 E = 3;
 imgTripled = zeros(size(img)*E);
 for r = 1:size(imgTripled,2)
