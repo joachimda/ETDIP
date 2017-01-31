@@ -62,7 +62,7 @@ fI4 = fft2(I4);
 fI4 = fftshift(fI4);
 logabsfI4=log10(abs(fI4));
 
-%%Plots
+%%Plots for simple sine value
 figure;
 subplot(3,3,1);imshow(I1);title('Sine wave:  k=5, l=5');
 subplot(3,3,2);imshow(I2);title('Sine wave:  k=2, l=5');
@@ -70,4 +70,27 @@ subplot(3,3,3);imshow(I3);title('Sine wave:  k=5, l=2');
 subplot(3,3,4);imshow(I4);title('Sine waves: k=5, l=5, x=5, y=5');
 subplot(3,3,5);imshow(logabsfI1/max(logabsfI1(:)));title('FFT of original');
 subplot(3,3,6);imshow(logabsfI4/max(logabsfI4(:)));title('FFT of both sines');
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%Enlarge an image using the methods from lab 1 and repeat 
+%%question 2 for the enlarged images.
+
+fileName = 'cameraman.jpg';
+image = imread(fileName);
+
+%%Calculate the amplitude spectrum for image
+fftImage = fft2(image);
+fftImage = fftshift(fftImage);
+logabsImage = log10(abs(fftImage));
+
+%%Resize the image
+
+%%MATLAB bilinear
+dI2=imresize(I1,3,'bilinear');
+
+%%Plots for images
+figure;
+subplot(2,2,1);imshow(I1);title('Original image');
+subplot(2,2,2);imshow(dI2);title('Resized image');
+
 
