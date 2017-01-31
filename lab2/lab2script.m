@@ -27,3 +27,11 @@ dJ=dJ+.0*randn(size(dJ));
 figure
 subplot(2,2,1);imshow(dI),title('Original image');
 subplot(2,2,2);imshow(dJ),title('Blurred image');
+
+doubledImg=(double(img)/255);
+
+hv=fspecial('sobel');
+dJv=imfilter(doubledImg,hv);
+figure, imshow(abs(dJv));
+
+
